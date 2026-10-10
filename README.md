@@ -1,64 +1,136 @@
 # QSkill Slab 1 — Front-End Development
 
-A responsive React + Tailwind CSS application containing the three specified beginner tasks:
-1. English text translator (RapidAPI integration)
-2. Random string generator (`useState`, `useCallback`, `useEffect`)
-3. Client-side routing (`react-router-dom`)
+A responsive web application built with **React, Vite, and Tailwind CSS** for the QSkill Front-End Development internship assignment.
 
-## Requirements
-- Node.js 18+ and npm
-- VS Code
-- A RapidAPI account and a translation API subscription/key
+The project demonstrates three core front-end tasks: an English text translator, a random string generator, and client-side routing.
 
-## Run in VS Code
-1. Extract the ZIP and open the `qskill-slab1-react` folder in VS Code.
-2. Open Terminal → New Terminal.
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Copy `.env.example` to `.env.local`.
-5. In `.env.local`, set the endpoint, key, and host for the translation API you subscribe to on RapidAPI. The endpoint and request body vary by provider; see **Configure RapidAPI** below.
-6. Start the app:
-   ```bash
-   npm run dev
-   ```
-7. Open the local URL printed by Vite (usually `http://localhost:5173`).
+## Features
 
-## Configure RapidAPI
-RapidAPI hosts many translation providers and their endpoint/body formats are not universal. In `src/pages/Translator.jsx`, update `translateText()` to match the provider's documented request:
-- URL: `VITE_TRANSLATE_API_URL`
-- Headers: `X-RapidAPI-Key` and `X-RapidAPI-Host`
-- Current sample request body: `{ from: "en", to: targetLanguage, text }`
-- Current sample response parsing accepts common fields: `translatedText`, `translation`, `translated_text`, or `data.translatedText`.
+### 1. English Text Translator
 
-Use the exact URL, headers, request fields, and response field shown on the RapidAPI provider's **Endpoints** page. Keep the key in `.env.local`, never publish it in GitHub. Note: Vite environment variables are bundled into browser code, so a `VITE_` key is visible to users in production. For a public deployment, move the API call into a server-side proxy (or serverless function) and store the key as a server secret.
+* Translate English text into a selected language.
+* Integrate with a translation API through RapidAPI.
+* Configure API credentials and requests according to the selected provider.
+* Display a setup message when the API is not configured.
 
-## Included routes
-- `/` — Dashboard
-- `/translator` — Translator
-- `/generator` — Random String Generator
-- `/about` — Task overview
+### 2. Random String Generator
 
-## Build and test
+* Generate random strings with a configurable length.
+* Select the character sets used to generate strings.
+* Copy generated strings and view recent results.
+* Demonstrate React Hooks: `useState`, `useCallback`, and `useEffect`.
+
+### 3. Client-Side Routing
+
+* Navigate between pages without full-page reloads.
+* Use `react-router-dom` to manage application routes.
+
+## Technology Stack
+
+| Technology       | Purpose                                 |
+| ---------------- | --------------------------------------- |
+| React            | UI components and application logic     |
+| Vite             | Development server and production build |
+| Tailwind CSS     | Responsive styling                      |
+| JavaScript       | Application functionality               |
+| React Router DOM | Client-side navigation                  |
+| React Hooks      | State and component behavior            |
+| RapidAPI         | Translation API integration             |
+
+## Application Routes
+
+| Route         | Page                    |
+| ------------- | ----------------------- |
+| `/`           | Dashboard               |
+| `/translator` | English Text Translator |
+| `/generator`  | Random String Generator |
+| `/about`      | About the Project       |
+
+## Prerequisites
+
+Install the following before running the project:
+
+* Node.js 18 or later
+* npm
+* Visual Studio Code (recommended)
+* A RapidAPI account and a compatible translation API subscription/key
+
+## Getting Started
+
+### 1. Open the project
+
+Clone the repository or download the project ZIP, then open the project folder in Visual Studio Code.
+
+### 2. Install dependencies
+
+Open the terminal in the project directory and run:
+
+```bash
+npm install
+```
+
+### 3. Configure the translation API
+
+Create a `.env.local` file in the project root and add the values required by your selected RapidAPI provider:
+
+```env
+VITE_TRANSLATE_API_URL=your_api_endpoint
+VITE_RAPIDAPI_KEY=your_api_key
+VITE_RAPIDAPI_HOST=your_api_host
+```
+
+Replace the placeholder values with the actual endpoint, key, and host. Confirm that the request body and response parsing in `src/pages/Translator.jsx` match the provider's documentation.
+
+**Security:** Do not commit real API credentials to GitHub. Variables prefixed with `VITE_` are exposed in the client-side production bundle. Use a server-side proxy to protect API keys in public deployments.
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL printed in the terminal. The default Vite URL is usually `http://localhost:5173`.
+
+## Build and Preview
+
+Create an optimized production build:
+
 ```bash
 npm run build
+```
+
+Preview the production build locally:
+
+```bash
 npm run preview
 ```
-A successful build creates the production bundle in `dist/`.
 
-## GitHub
-```bash
-git init
-git add .
-git commit -m "Complete QSkill Slab 1 React tasks"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
-```
-For GitHub Pages, configure the Vite `base` option to `"/YOUR-REPOSITORY/"`, install and configure `gh-pages` or use GitHub Actions, and ensure SPA route fallback is handled. A static host such as Netlify or Vercel generally handles React Router fallback more easily.
+The generated production files are saved in the `dist/` directory.
 
-## Notes
-- The translator requires valid RapidAPI credentials and provider-specific configuration; without them, the app displays a helpful setup error.
-- The random string generator supports configurable length and character sets, copies results, and keeps a short history.
-- Navigation uses React Router and does not reload the page.
+## Deployment
+
+The application can be deployed to GitHub Pages, Netlify, or Vercel.
+
+For GitHub Pages:
+
+1. Configure Vite's `base` path to match the repository name.
+2. Build the application using `npm run build`.
+3. Deploy the generated `dist/` directory.
+4. Configure the deployment to support React Router navigation and direct access to application routes.
+
+## Learning Outcomes
+
+By completing this project, you can demonstrate:
+
+* Building responsive user interfaces with React and Tailwind CSS.
+* Managing state and behavior using React Hooks.
+* Integrating a third-party API.
+* Implementing client-side routing.
+* Creating and testing a production build with Vite.
+
+## Assignment Information
+
+* **Program:** QSkill Front-End Development Internship
+* **Slab:** Slab 1 — Beginner
+* **Domain:** Front-End Development
+* **Core Technologies:** React and Tailwind CSS
