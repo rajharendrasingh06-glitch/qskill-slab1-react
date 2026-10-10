@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { font-family: 'DM Sans', sans-serif; color-scheme: dark; }
+body { margin: 0; min-width: 320px; background: #0b1020; }
+h1,h2,h3,.display { font-family: 'Space Grotesk', sans-serif; }
+@layer components {
+  .panel { @apply rounded-2xl border border-white/10 bg-panel shadow-panel; }
+  .nav-link { @apply flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white; }
+  .nav-link-active { @apply bg-cyan-300/10 text-cyan-200; }
+  .primary-btn { @apply items-center justify-center gap-2 rounded-xl bg-cyan-300 px-4 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-40; }
+  .secondary-btn { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-cyan-300/40 hover:bg-white/5; }
+  .field { @apply w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-600 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/10; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[.2em] text-cyan-300; }
+}
+
+.metric { @apply rounded-xl border border-white/10 bg-slate-950/35 p-3 text-center backdrop-blur; }
